@@ -7,7 +7,7 @@
     tools:context=".ui.dashboard.DashboardFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recylclerView"
+        android:id="@+id/recylclerView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,8 +24,8 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/recylclerView"
+        app:layout_constraintBottom_toBottomOf="@+id/recylclerView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recylclerView" />
+        app:layout_constraintTop_toTopOf="@+id/recylclerView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

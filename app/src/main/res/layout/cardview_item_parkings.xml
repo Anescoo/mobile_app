@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/grpNom"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/grpDisponible"
+            android:id="@+id/availabilty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -39,21 +39,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.166" />
 
-        <TextView
-            android:id="@+id/grpExploitation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="300 "
-            android:textColor="#454545"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.166" />
-
         <ImageView
-            android:id="@+id/grpStatut"
+            android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -64,27 +51,15 @@
             app:srcCompat="@drawable/ic_baseline_circle_green" />
 
         <TextView
-            android:id="@+id/adress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="8dp"
-            android:text="adresse"
-            android:textColor="#777676"
-            android:textSize="11sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/grpNom" />
-
-        <TextView
             android:id="@+id/distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.8km"
             android:textColor="#807F7F"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/grpDisponible"
-            app:layout_constraintStart_toStartOf="@+id/grpDisponible"
-            app:layout_constraintTop_toBottomOf="@+id/grpDisponible"
+            app:layout_constraintEnd_toEndOf="@+id/availabilty"
+            app:layout_constraintStart_toStartOf="@+id/availabilty"
+            app:layout_constraintTop_toBottomOf="@+id/availabilty"
             app:layout_constraintVertical_bias="0.428" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

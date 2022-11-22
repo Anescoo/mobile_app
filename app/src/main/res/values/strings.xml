@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Vélos à Nantes</string>
     <string name="title_bike">Vélos</string>
+    <string name="title_parkings">Parkings de Nantes</string>
     <string name="title_gas_station">Stations</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_station_details">stationDetailsActivity</string>

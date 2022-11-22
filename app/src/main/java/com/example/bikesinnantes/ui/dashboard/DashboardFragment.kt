@@ -35,12 +35,12 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val recyclerView = binding.recylclerView
+        val recyclerView2 = binding.recylclerView2
         var progressBarParkings = binding.progressBarParkings
 
         dashboardViewModel.parkings.observe(viewLifecycleOwner) {
-            recyclerView.layoutManager = LinearLayoutManager(requireContext())
-            recyclerView.adapter = ParkingAdapter(it, requireContext())
+            recyclerView2.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView2.adapter = ParkingAdapter(it, requireContext())
             progressBarParkings.visibility = View.GONE
             allParkings = it
         }

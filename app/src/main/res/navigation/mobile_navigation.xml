@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.bikesinnantes.ui.dashboard.DashboardFragment"
-        android:label="@string/title_gas_station"
+        android:label="@string/title_parkings"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment

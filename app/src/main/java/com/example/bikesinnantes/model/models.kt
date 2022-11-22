@@ -42,18 +42,18 @@ var allParkings:List<Parking>? = null
 
 @Serializable
 data class Parking (
+    val grpNom: String,
+    val grpIdentifiant: String,
+    val idobj: String,
+    val grpExploitation: String,
+    val recordId: String,
     val id: Long,
     val grpDisponible: Long,
-    val grpNom: String,
     val grpStatut: Long,
-    val grpIdentifiant: String,
-    val disponibilite: Int,
-    val idobj: String,
     val grpComplet: Long,
-    val grpExploitation: String,
+    val disponibilite: Int,
     val latitude: Double,
     val longitude: Double,
-    val recordId: String
 ){
     fun toLocation(): Location {
 
@@ -65,7 +65,7 @@ data class Parking (
     }
 
     fun showDetails(): CharSequence? {
-        return "${disponibilite}/${grpComplet}"
+        return "${disponibilite} 🅿️ / ${grpExploitation} max"
     }
 }
 

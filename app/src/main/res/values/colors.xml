@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="empty_bikes">#FFC64343</color>
     <color name="bikes">#454545</color>
+    <color name="parkingIsOpen">#53CB2D</color>
+    <color name="parkingIsClose">#E03333</color>
+    <color name="parkingIsOpenForSubscribers">#4FACD1</color>
 </resources>

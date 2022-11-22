@@ -16,6 +16,9 @@ import com.example.bikesinnantes.R
 import com.example.bikesinnantes.model.Parking
 import com.example.bikesinnantes.model.currentLocation
 import com.example.bikesinnantes.model.parkingSelected
+import com.example.bikesinnantes.model.stationSelected
+import com.example.bikesinnantes.ui.stationDetail.StationMapsActivity
+import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.coroutines.test.withTestContext
 
 
@@ -25,14 +28,15 @@ class ParkingAdapter(private val parkings:List<Parking>, private val context: Co
     class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
         val cardView : CardView = itemView.findViewById(R.id.cardView)
         val name : TextView = itemView.findViewById(R.id.name)
-        val grpDisponible : TextView = itemView.findViewById(R.id.grpDisponible)
         val distance : TextView = itemView.findViewById((R.id.distance))
-        val grpExploitation : TextView = itemView.findViewById((R.id.grpExploitation))
+        val availability : TextView = itemView.findViewById((R.id.availabilty))
+        val status : ImageView = itemView.findViewById((R.id.status))
+
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_item_parkings, parent, false)
         return ViewHolder(view);
     }
 
@@ -41,9 +45,8 @@ class ParkingAdapter(private val parkings:List<Parking>, private val context: Co
     @SuppressLint("SetTextI18n", "ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val parking = parkings[position]
-        holder.name.text = parking.grpNom
-        holder.grpDisponible.text = parking.grpDisponible.toString()
-        holder.grpExploitation.text = parking.grpExploitation
+        holder.name.text = "${parking.grpIdentifiant}-${parking.grpNom}"
+        holder.availability.text = "${parking.grpDisponible} 🅿️ / ${parking.grpExploitation} max"
 
         if (currentLocation != null){
             holder.distance.text = "${String.format("%.2f", currentLocation!!.distanceTo(parking.toLocation()) /1000)} km"
@@ -51,7 +54,23 @@ class ParkingAdapter(private val parkings:List<Parking>, private val context: Co
             holder.distance.text = "- km"
         }
 
-        //Quand on click sur la card view -> on ouvre une nouvelle fenetre
+        if (parking.grpStatut.toInt() == 1  ) {
+            holder.name.setTextColor(context.getColor(R.color.parkingIsClose))
+            holder.status.setImageResource(R.drawable.ic_baseline_circle_red)
+        } else if (parking.grpStatut.toInt() == 5) {
+            holder.name.setTextColor(context.getColor(R.color.parkingIsOpen))
+            holder.status.setImageResource(R.drawable.ic_baseline_circle_green)
+        } else if (parking.grpStatut.toInt() == 2) {
+            holder.name.setTextColor(context.getColor(R.color.parkingIsOpenForSubscribers))
+            holder.status.setImageResource(R.drawable.ic_baseline_group_add_24)
+        } else {
+            holder.name.setTextColor(context.getColor(R.color.parkingIsClose))
+            holder.status.setImageResource(R.drawable.ic_baseline_not_interested_24)
+        }
+        holder.cardView.setOnClickListener {
+            //intent.putExtra("station", station.name)
+        }
+
     }
 
     override fun getItemCount(): Int {
